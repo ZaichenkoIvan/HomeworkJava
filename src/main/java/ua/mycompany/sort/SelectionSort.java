@@ -1,14 +1,12 @@
 package ua.mycompany.sort;
 
-public class SelectionSort extends Sort {
-    SelectionSort(int[] array) {
-        super(array);
-    }
+public class SelectionSort implements Sorting {
 
     @Override
-    public void sort() {
+    public void sort(int[] array) {
         if (array == null)
             throw new NullPointerException();
+
         for (int left = 0; left < array.length; left++) {
             int minInd = left;
             for (int i = left; i < array.length; i++) {
@@ -16,7 +14,7 @@ public class SelectionSort extends Sort {
                     minInd = i;
                 }
             }
-            swap(left, minInd);
+            Helper.swap(array, left, minInd);
         }
     }
 }

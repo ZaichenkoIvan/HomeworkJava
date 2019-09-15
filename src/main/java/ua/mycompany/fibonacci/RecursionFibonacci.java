@@ -1,11 +1,9 @@
 package ua.mycompany.fibonacci;
 
 public class RecursionFibonacci implements Fibonacci {
-    public RecursionFibonacci() {
-    }
 
     public int findValueFibonacci(int numberFibonacci) {
-        if(numberFibonacci <0)
+        if (numberFibonacci < 0)
             throw new UnsupportedOperationException();
 
         if (numberFibonacci == 0) {

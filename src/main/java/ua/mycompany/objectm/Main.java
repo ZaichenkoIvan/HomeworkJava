@@ -1,16 +1,29 @@
 package ua.mycompany.objectm;
 
+import com.sun.media.sound.InvalidDataException;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvalidDataException {
 
-        Sprite sprite1 = new Sprite("glask", 30, 15.0);
-        Sprite sprite2 = new Sprite("glass", 30, 15.0);
+        Address address = new Address("Uman", 20300);
+        User user = new User("v","w", 20,true, address);
 
-        boolean equalsSprite = sprite1.equals(sprite2);
+        System.out.println(user);
+
+        address.setCity("Kiev");
+        System.out.println(user);
+
+        System.out.println();
+
+        User user1 = new User("v","w", 20,true, address);
+        User user2 = new User("v","v", 20,true, address);
+
+        boolean equalsSprite = user1.equals(user2);
         System.out.println("This object is equals. Its "+ equalsSprite);
 
-        boolean hashCode = sprite1.hashCode() == sprite2.hashCode();
+        boolean hashCode = user1.hashCode() == user2.hashCode();
         System.out.println("This object has similar hashcode. Its "+ hashCode);
+
     }
 
 }

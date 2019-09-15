@@ -1,12 +1,9 @@
 package ua.mycompany.sort;
 
-public class InsertionSort extends Sort {
-     InsertionSort(int[] array) {
-        super(array);
-    }
+public class InsertionSort implements Sorting {
 
-    public void sort() {
-        if (this.array == null)
+    public void sort(int[] array) {
+        if (array == null)
             throw new NullPointerException();
 
         int in, out;
@@ -20,7 +17,7 @@ public class InsertionSort extends Sort {
                 --in;
             }
 
-            this.array[in] = temp;
+            array[in] = temp;
         }
     }
 }

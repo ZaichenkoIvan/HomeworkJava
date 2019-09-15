@@ -5,27 +5,27 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        int[] array = GeneratorArray.generatorArray();
-        Sort bubble = new BubbleSort(array);
-        outputSort(bubble);
+        int[] array = Helper.generatorArray();
+        Sorting bubble = new BubbleSort();
+        outputSort(bubble,array);
 
-        array = GeneratorArray.generatorArray();
-        Sort insertion = new InsertionSort(array);
-        outputSort(insertion);
+        array = Helper.generatorArray();
+        Sorting insertion = new InsertionSort();
+        outputSort(insertion,array);
 
-        array = GeneratorArray.generatorArray();
-        Sort selection = new SelectionSort(array);
-        outputSort(selection);
+        array = Helper.generatorArray();
+        Sorting selection = new SelectionSort();
+        outputSort(selection,array);
 
     }
 
-    private static void outputSort(Sort sort) {
+    private static void outputSort(Sorting sort, int[]array) {
 
-        System.out.println(Arrays.toString(sort.getArray()));
+        System.out.println(Arrays.toString(array));
 
-        sort.sort();
+        sort.sort(array);
 
-        System.out.println(Arrays.toString(sort.getArray()));
+        System.out.println(Arrays.toString(array));
         System.out.println();
 
     }
