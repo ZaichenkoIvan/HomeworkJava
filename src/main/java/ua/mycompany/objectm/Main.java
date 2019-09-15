@@ -18,8 +18,8 @@ public class Main {
         User user1 = new User("v","w", 20,true, address);
         User user2 = new User("v","v", 20,true, address);
 
-        boolean equalsSprite = user1.equals(user2);
-        System.out.println("This object is equals. Its "+ equalsSprite);
+        boolean equalsUser = user1.equals(user2);
+        System.out.println("This object is equals. Its "+ equalsUser);
 
         boolean hashCode = user1.hashCode() == user2.hashCode();
         System.out.println("This object has similar hashcode. Its "+ hashCode);
