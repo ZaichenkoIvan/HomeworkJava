@@ -3,8 +3,9 @@ package ua.mycompany.fibonacci;
 public class RecursionFibonacci implements Fibonacci {
 
     public int findValueFibonacci(int numberFibonacci) {
-        if (numberFibonacci < 0)
-            throw new UnsupportedOperationException();
+        if (numberFibonacci < 0) {
+            throw new IllegalArgumentException("NumberFibonacci must be positive");
+        }
 
         if (numberFibonacci == 0) {
             return 0;

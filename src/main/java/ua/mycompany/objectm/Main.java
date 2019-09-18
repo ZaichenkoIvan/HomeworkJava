@@ -1,9 +1,9 @@
 package ua.mycompany.objectm;
 
-import com.sun.media.sound.InvalidDataException;
+import javax.xml.bind.ValidationException;
 
 public class Main {
-    public static void main(String[] args) throws InvalidDataException {
+    public static void main(String[] args) throws ValidationException {
 
         Address address = new Address("Uman", 20300);
         User user = new User("v","w", 20,true, address);
@@ -23,6 +23,10 @@ public class Main {
 
         boolean hashCode = user1.hashCode() == user2.hashCode();
         System.out.println("This object has similar hashcode. Its "+ hashCode);
+
+        System.out.println(null == null);
+        String str = null;
+        System.out.println(str.equals(null));
 
     }
 

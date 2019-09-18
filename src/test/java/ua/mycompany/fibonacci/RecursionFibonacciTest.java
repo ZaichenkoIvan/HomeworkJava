@@ -13,8 +13,8 @@ public class RecursionFibonacciTest {
         assertEquals(8, actual);
     }
 
-    @Test(expected = UnsupportedOperationException.class)
-    public void throwExceptionUnvalidationRecursionFibonacci() {
+    @Test(expected = IllegalArgumentException.class)
+    public void throwIllegalArgumentExceptionRecursionFibonacci() {
         new RecursionFibonacci().findValueFibonacci(-6);
     }
 

@@ -1,11 +1,8 @@
 package ua.mycompany.fibonacci;
 
 import org.junit.Test;
-import ua.mycompany.factorial.Factorial;
 
-import java.math.BigInteger;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class LoopFibonacciTest {
     @Test
@@ -15,8 +12,8 @@ public class LoopFibonacciTest {
         assertEquals(8, actual);
     }
 
-    @Test(expected = UnsupportedOperationException.class)
-    public void throwExceptionUnvalidationLoopFibonacci() {
+    @Test(expected = IllegalArgumentException.class)
+    public void throwIllegalArgumentExceptionLoopFibonacci() {
         new LoopFibonacci().findValueFibonacci(-6);
     }
 }

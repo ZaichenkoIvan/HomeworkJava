@@ -1,16 +1,16 @@
 package ua.mycompany.objectm;
 
-import com.sun.media.sound.InvalidDataException;
+import javax.xml.bind.ValidationException;
 
 public class Address {
     private String city;
     private int code;
 
-    public Address(String city, int code) throws InvalidDataException {
+    public Address(String city, int code) throws ValidationException {
         if (code < 0)
-            throw new InvalidDataException();
+            throw new IllegalArgumentException("Code must be positive");
         if (city == null)
-            throw new NullPointerException();
+            throw new ValidationException("City can't be null");
 
         this.city = city;
         this.code = code;
@@ -20,7 +20,7 @@ public class Address {
         return city;
     }
 
-    public Address setCity(String city) throws InvalidDataException {
+    public Address setCity(String city) throws ValidationException {
         return new Address(city, code);
     }
 
@@ -28,9 +28,9 @@ public class Address {
         return code;
     }
 
-    public Address setCode(int code) throws InvalidDataException {
+    public Address setCode(int code) throws ValidationException {
         if (code < 0)
-            throw new InvalidDataException();
+            throw new IllegalArgumentException("Code must be positive");
 
         return new Address(city, code);
     }

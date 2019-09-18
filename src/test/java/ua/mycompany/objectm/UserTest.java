@@ -4,28 +4,30 @@ import com.sun.media.sound.InvalidDataException;
 import org.junit.Before;
 import org.junit.Test;
 
+import javax.xml.bind.ValidationException;
+
 import static org.junit.Assert.*;
 
 public class UserTest {
-    User user1;
-    User user2;
-    User user3;
+    private User user1;
+    private User user2;
+    private User user3;
 
     @Before
-    public void setUp() throws InvalidDataException {
+    public void setUp() throws ValidationException {
         Address address = new Address("Uman", 20300);
-        user1 = new User("v","o", 20,true, address);
-        user2 = new User("v","v", 20,true, address);
+        user1 = new User(null,"o", 20,true, address);
+        user2 = new User(null,"o", 20,true, address);
         user3 = new User("v","o", 20,true, address);
     }
 
     @Test
     public void shouldReturnEqualsObjects() {
         boolean equalsUser = user1.equals(user2);
-        assertFalse(equalsUser);
+        assertTrue(equalsUser);
 
         equalsUser = user1.equals(user3);
-        assertTrue(equalsUser);
+        assertFalse(equalsUser);
     }
 
     @Test

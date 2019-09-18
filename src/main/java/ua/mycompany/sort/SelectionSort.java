@@ -4,8 +4,6 @@ public class SelectionSort implements Sorting {
 
     @Override
     public void sort(int[] array) {
-        if (array == null)
-            throw new NullPointerException();
 
         for (int left = 0; left < array.length; left++) {
             int minInd = left;

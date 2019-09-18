@@ -3,8 +3,6 @@ package ua.mycompany.sort;
 public class InsertionSort implements Sorting {
 
     public void sort(int[] array) {
-        if (array == null)
-            throw new NullPointerException();
 
         int in, out;
 

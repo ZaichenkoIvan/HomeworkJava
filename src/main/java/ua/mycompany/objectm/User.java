@@ -9,11 +9,9 @@ public final class User {
     private final boolean active;
     private final Address address;
 
-    public User(String name, String surname, int age, boolean active, Address address) throws InvalidDataException {
+    public User(String name, String surname, int age, boolean active, Address address) {
         if (age < 0)
-            throw new InvalidDataException();
-        if (name == null || surname == null)
-            throw new NullPointerException();
+            throw new IllegalArgumentException("Age must be positive");
 
         this.name = name;
         this.surname = surname;
@@ -25,7 +23,6 @@ public final class User {
     public Address getAddress() {
         return address;
     }
-
 
     public String getName() {
         return name;
@@ -44,16 +41,26 @@ public final class User {
     }
 
     public boolean equals(User user) {
-        if (this == user) return true;
-        if (user == null || getClass() != user.getClass()) return false;
+
+        if (this == user) {
+            return true;
+        }
+        if (user == null || getClass() != user.getClass()) {
+            return false;
+        }
         return age == user.age &&
-                name.equals(user.name) &&
-                surname.equals(user.surname) &&
+                (name == user.name || (name != null && name.equals(user.getName()))) &&
+                (surname == user.surname || (surname != null && surname.equals(user.getSurname()))) &&
                 active == user.active;
     }
 
     public int hashCode() {
-        return active ? name.length() * age + 213 : 20 * surname.length();
+        int result = 0;
+        result *= 31 * (this.name == null ? 1 : name.length() + 1);
+        result *= 31 * (this.surname == null ? 1 : surname.length() + 1);
+        result *= 31 * age;
+        result *= 31 * (active ? 2 : 1);
+        return result;
     }
 
     @Override
